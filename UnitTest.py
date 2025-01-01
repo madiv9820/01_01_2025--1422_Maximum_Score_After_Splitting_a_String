@@ -5,7 +5,7 @@ import unittest
 class UnitTest(unittest.TestCase):
     def setUp(self):
         self.__testcases = {1: ('011101', 5), 2: ('00111', 5), 
-                            3: ('1111', 3), 4: ('00', 1)}
+                            3: ('1111', 3), 4: ('00', 1), 5: ('0100', 2)}
         self.__obj = Solution()
         return super().setUp()
     
@@ -33,6 +33,13 @@ class UnitTest(unittest.TestCase):
     @timeout(0.5)
     def test_case_4(self):
         s, output = self.__testcases[4]
+        result = self.__obj.maxScore(s = s)
+        self.assertIsInstance(result, int)
+        self.assertEqual(result, output)
+
+    @timeout(0.5)
+    def test_case_5(self):
+        s, output = self.__testcases[5]
         result = self.__obj.maxScore(s = s)
         self.assertIsInstance(result, int)
         self.assertEqual(result, output)
